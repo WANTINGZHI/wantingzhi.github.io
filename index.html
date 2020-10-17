@@ -3,57 +3,32 @@ layout: default
 title: Jekyll Themes
 ---
 <h1><a href="/_layouts/number.html">猜数字</a></h1>
-<!--
-<div class="gallery">
-	{% for post in paginator.posts %}
-		<div class="item">
-			<a class="item-inner" href="{{ post.url }}">
-				<div class="item-image"><img src="/thumbnails/{{ post.thumbnail }}"></div>
-				<div class="item-name">{{ post.title }}</div>
-			</a>
-		</div>
-	{% endfor %}
+<div class="a1">
+    <script>
+        var str='';
+        var date = new Date();
+
+        if(date.getDay()==0){week="周末";}
+		if(date.getDay()==1){week="周一";}
+		if(date.getDay()==2){week="周二";}
+		if(date.getDay()==3){week="周三";}
+		if(date.getDay()==4){week="周四";}
+		if(date.getDay()==5){week="周五";}
+		if(date.getDay()==6){week="周六";}
+		
+        min=date.getMinutes();
+        hour=date.getHours();
+        s=" ";
+        s=week+s+hour+"点"+min+"分了！";
+        document.write(s);
+        if(hour<6){str='早上好呀，你比太阳更勤奋';}
+        else if   (hour<9){str='冲呀，新的一天开始了';}
+        else if   (hour<12){str='是不是饿坏了，在等着午饭呢';}
+        else if   (hour<14){str='午睡了吗，是不是有点困了';}
+        else if   (hour<17){str='下午也要继续努力呀';}
+        else if   (hour<19){str='傍晚好，换了时光要开始了呀';}
+        else if   (hour<22){str='晚上了，洗洗睡吧';}
+        else               {str='不听话了，还不睡觉';}
+        document.write(str);
+    </script>
 </div>
- Pager 
-
-<div class="row-fluid">
-  <div class="span12">
-    <div class="pagination">
-      <ul>
-        {% if paginator.previous_page %}
-
-          {% if paginator.previous_page == 1 %}
-            <li><a href="/">Prev</a></li>
-          {% else %}
-            <li><a href="/page{{ paginator.previous_page }}">Prev</a></li>
-          {% endif %}
-
-        {% else %}
-          <li><span class="disabled">Prev</span></li>
-        {% endif %}
-
-        {% if paginator.page == 1 %}
-          <li><span class="active">1</span></li>
-        {% else %}
-          <li><a href="/">1</a></li>
-        {% endif %}
-
-        {% for count in (2..paginator.total_pages) %}
-
-          {% if count == paginator.page %}
-            <li><span class="active">{{ count }}</span></li>
-          {% else %}
-            <li><a href="/page{{ count }}">{{ count }}</a></li>
-          {% endif %}
-        {% endfor %}
-
-        {% if paginator.next_page %}
-          <li><a href="/page{{ paginator.next_page }}">Next</a></li>
-        {% else %}
-          <li><span class="disabled">Next</span></li>
-        {% endif %}
-      </ul>
-    </div>
-  </div>
-</div>
--->
